@@ -34,24 +34,23 @@ while True:
     num = int(input("Введите число: "))
     if num == 111:
         break
-    if num < max_num and num > min_num:
+    if num < max_num or num > min_num:
         print('Число должно быть от 0 до 10000')
         continue
     if num % 2 != 0:
         count += 1
         sum += num
-        print(f'Среднее арифметическое нечетных чисел : {sum/count}')
     if num % 2 == 0:
         min_num = min(num, min_num)
-        print(f'Минимальное четное число : {min_num}')
 
     else:
         print('Число нечетное')
 
     if num % 20 == 0:
         a *= num
-        print(f'Произведение чисел кратных 20 : {a}')
-
+print(f'Произведение чисел кратных 20 : {a}')
+print(f'Среднее арифметическое нечетных чисел : {sum/count}')
+print(f'Минимальное четное число : {min_num}')
 print()
 
 '''
@@ -65,19 +64,20 @@ print()
 
 a = 3
 pi = 3.14
+flag = False
 
 for _ in range(a):
     R = float(input('Введите радиус круга: '))
     if R < 0:
         print('Радиус не может быть отрицательным')
-        continue
-        
     else:
         S = pi * R ** 2
         print(f'Площадь круга с радиусом {R} равна S = {S}')
+        flag = True
         break
 
-print('Превышено количество попыток')
+if not Flag:
+    print('Превышено количество попыток')
 print()
 
 while True:
@@ -86,9 +86,9 @@ while True:
     b = float(input("Введите второй катет"))
     if a < 0 or b < 0:
         print('Числа должны быть положительными')
-        continue
     else:
         c = (a**2 + b**2)**0.5
         print(f'Длина гипотенузы прямоугольного треугольника равна c = {c}')
+        break
 print()
 
