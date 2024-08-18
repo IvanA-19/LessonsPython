@@ -98,3 +98,78 @@ print(a[::-1])
 # Кортежи - неизменяемые списки
 b = (2, 3, 5, 6, 9)
 
+# Списки поддерживают min() и max()
+print(min(a), max(a))
+
+# Задача 1. Вывести на экран таблицу истинности для основных операций алгебры логики
+# Конъюнкция (и)
+"""
+x   y   f = x and y
+0   0       0
+0   1       0
+1   0       0
+1   1       1
+"""
+print("x\ty\tf = x and y")
+for x in range(2):
+    for y in range(2):
+        print(f"{x}\t{y}\t\t{x and y}")
+
+# Дизъюнкция (или)
+print("x\ty\tf = x or y")
+for x in range(2):
+    for y in range(2):
+        print(f"{x}\t{y}\t\t{x or y}")
+
+# Импликация (A -> B)
+print("x\ty\tf = x -> y")
+for x in range(2):
+    for y in range(2):
+        print(f"{x}\t{y}\t\t{x <= y}")
+
+# Генераторы списков
+# Классический способ заполнения списка
+b = []
+
+for i in range(11):
+    b.append(i)
+
+print(b)
+
+c = [i if i % 2 == 0 else 0 for i in range(11)]
+print(c)
+print(list(set(c)))
+
+# set - множество
+# множество содержит только уникальные значения
+
+# Задача 2. Имеется список целых чисел от -100, 100.
+# Найти в списке под каким номером находится
+# Данное число
+# Список отсортирован по возрастанию
+
+arr = [e for e in range(-100, 101)]
+# arr = list(range(-100, 101))
+
+num = int(input("Введите число от -100 до 100: "))
+# Бинарный поиск
+
+low = 0
+high = len(arr) - 1
+
+step_count = 0
+while low <= high:
+    mid = (high + low) // 2
+    guess = arr[mid]
+    if guess == num:
+        print(mid)
+        break
+    if guess > num:
+        high = mid - 1
+    if guess < num:
+        low = mid + 1
+    step_count += 1
+
+print(arr.index(num))
+print(step_count)
+
